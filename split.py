@@ -76,6 +76,9 @@ def process_minority_proportion(input_file, target_col, target_proportion,
         proportion_str = f"{int(target_proportion * 100)}pct"
         output_file = os.path.join(output_dir, f"minority_{proportion_str}.csv")
 
+        # Ensure output directory exists
+        os.makedirs(output_dir, exist_ok=True)
+
         # Save combined dataset
         combined_df.to_csv(output_file, index=False)
         print(f"Created {output_file} (minority proportion: {target_proportion:.1%})")
