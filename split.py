@@ -1,10 +1,15 @@
 import pandas as pd
 
-full_df = pd.read_csv("data/fitness_dataset.csv")
-target = "is_fit"
-minority_value = 1
+PATH = "data/fitness_dataset.csv"
+TARGET = "is_fit"
+MINORITY_VALUE = 1
+TARGET_MINORITY_PROPORITON = 0.2
 
-minority_rows = full_df[full_df[target] == minority_value]
-print(len(minority_rows) / len(full_df))
+full_df = pd.read_csv(PATH)
+p = TARGET_MINORITY_PROPORITON
+minority_rows = full_df[full_df[TARGET] == MINORITY_VALUE]
 
-minority_rows.to_csv("data/fitness_minority_rows.csv")
+num_minority_rows_to_keep = int( (p * (len(full_df) - len(minority_rows))) / (1 - p) )
+minority_rows_to_keep = minority_rows.sample(n=num_minority_rows_to_keep, replace=False)
+
+minority_rows_to_keep.to_csv("data/fitness_minority_rows.csv")
