@@ -4,7 +4,7 @@ Split dataset by minority class proportions, generate synthetic data, and combin
 import argparse
 import os
 import pandas as pd
-from synthetic_script import generate_synthetic_data
+from utils.gen_datasynthesizer import generate_synthetic_data
 
 
 def process_minority_proportion(input_file, target_col, target_proportion,
