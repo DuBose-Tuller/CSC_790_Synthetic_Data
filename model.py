@@ -12,6 +12,8 @@ from sklearn.preprocessing import LabelEncoder
 
     
 def run_model( datapath, target_col, val_size =0.2, test_size=0.2, random_state=42):
+    ROC_AUCs = []
+
     # Load the dataset
     data = pd.read_csv(datapath)
     
@@ -89,6 +91,7 @@ def run_model( datapath, target_col, val_size =0.2, test_size=0.2, random_state=
     from sklearn.metrics import roc_auc_score
     roc_auc = roc_auc_score(y_test_encoded, y_pred, multi_class='ovr')
     print("ROC AUC:", roc_auc)
+    ROC_AUCs.append(roc_auc)
     print("--------------------------------")
     
 
@@ -111,6 +114,7 @@ def run_model( datapath, target_col, val_size =0.2, test_size=0.2, random_state=
     # area under ROC curve
     roc_auc = roc_auc_score(y_test_encoded, y_pred, multi_class='ovr')
     print("ROC AUC:", roc_auc)
+    ROC_AUCs.append(roc_auc)
     print("--------------------------------")
 
 
@@ -134,6 +138,8 @@ def run_model( datapath, target_col, val_size =0.2, test_size=0.2, random_state=
     roc_auc = roc_auc_score(y_test_encoded, y_pred, multi_class='ovr')    
 
     print("ROC AUC:", roc_auc)
+    ROC_AUCs.append(roc_auc)
 
     print("--------------------------------")   
+    return ROC_AUCs
      
