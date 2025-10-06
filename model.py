@@ -12,7 +12,6 @@ from sklearn.preprocessing import LabelEncoder
 
     
 def run_model( datapath, target_col, val_size =0.2, test_size=0.2, random_state=42):
-    print(target_col)
     ROC_AUCs = []
 
     # Load the dataset
