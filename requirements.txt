@@ -1,4 +1,5 @@
 DataSynthesizer
 jupyter
 ipython
+imbalanced-learn
 tqdm
