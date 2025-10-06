@@ -5,16 +5,13 @@ from sklearn.model_selection import train_test_split
 
 
 def train_test_data_split(datapath, val_size=0.2, test_size=0.2, random_state=42):
-    # Use the data directory path
-    data_dir = '/home/sahau24/csc790project/Fall2025_DCAI/CSC_790_Synthetic_Data/data'
-
-    for filename in os.listdir(data_dir):
+    for filename in os.listdir(datapath):
         if filename.endswith(".csv"):
             # Get dataset name without extension
             dataset_name = os.path.splitext(filename)[0]
             
             # Full path to the CSV file
-            full_csv_path = os.path.join(data_dir, filename)
+            full_csv_path = os.path.join(datapath, filename)
             
             # Load the data
             data = pd.read_csv(full_csv_path)
@@ -53,7 +50,5 @@ def train_test_data_split(datapath, val_size=0.2, test_size=0.2, random_state=42
 
 if __name__ == "__main__":
 
-    datapath = '/home/sahau24/csc790project/Fall2025_DCAI/CSC_790_Synthetic_Data/data'
+    datapath = 'data/'
     train_test_data_split(datapath)
-
-
