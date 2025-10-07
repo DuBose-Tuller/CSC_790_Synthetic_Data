@@ -16,7 +16,6 @@ def process_minority_proportion(input_file, target_col, target_proportion,
     Process a dataset for a specific minority proportion:
     1. Downsample minority class to target proportion
     2. Use SMOTE to oversample minority to balance with majority class
-
     Args:
         input_file: Path to input CSV
         target_col: Name of target column
