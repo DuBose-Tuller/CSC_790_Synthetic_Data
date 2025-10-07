@@ -14,7 +14,7 @@ all_runs = []
 print(f"Running baseline evaluation on original dataset ({N_RUNS} runs)...")
 for run_idx in range(N_RUNS):
     # Train models
-    training_results = run_three_models_training(train_file, TARGET)
+    training_results = run_three_models_training(train_file, TARGET, random_state=None)
     # Test all models
     test_results = test_all_models(training_results, test_file, TARGET)
     all_runs.append(test_results)
